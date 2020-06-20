@@ -1,0 +1,29 @@
+name: Arcade
+main: com.sxtanna.mc.arcade.hook.ArcadeBasePlugin
+
+version: '1.0'
+website: 'https://gh.sxtanna.com'
+
+author: 'Sxtanna'
+api-version: '1.14'
+
+commands:
+  game:
+    usage: '/game [load, kill, start, stop] {game_name}'
+    aliases: ['g']
+  maps:
+    usage: '/maps [list, make] {game_name} {world_name}'
+  damage:
+    usage: '/damage [delay, knock, pause] {true/false}'
+  worlds:
+    usage: '/worlds [list, make, move] {world_name} {player_list}'
+    aliases: ['ws']
+  gamemode:
+    usage: '/[gamemode/gmc/gms/gma/gmsp/mode] {gamemode} {player}'
+    aliases: ['gmc', 'gms', 'gma', 'gmsp', 'mode']
+  fly:
+    usage: '/fly {player}'
+    aliases: ['f']
+  ping:
+    usage: '/ping'
+

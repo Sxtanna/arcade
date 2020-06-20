@@ -1,0 +1,81 @@
+plugins {
+	id 'java'
+	id 'idea'
+	
+	id 'org.jetbrains.kotlin.jvm' version '1.3.72'
+	id 'com.github.johnrengelman.shadow' version '5.1.0'
+}
+
+
+group 'com.sxtanna.mc'
+version '1.0'
+
+
+dependencies {
+	api "com.sxtanna.korm:Korm:3.2"
+	api "com.sxtanna.recorder:recorder:1.0-SNAPSHOT"
+	
+	implementation "org.zeroturnaround:zt-zip:1.13"
+	
+	api "org.jetbrains.kotlin:kotlin-reflect:1.3.72"
+	api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.72"
+}
+
+allprojects {
+	apply plugin: 'java'
+	apply plugin: 'idea'
+	
+	apply plugin: 'org.jetbrains.kotlin.jvm'
+	apply plugin: 'com.github.johnrengelman.shadow'
+	
+	
+	sourceCompatibility = JavaVersion.VERSION_13
+	targetCompatibility = JavaVersion.VERSION_13
+	
+	tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+		kotlinOptions.jvmTarget = JavaVersion.VERSION_13
+	}
+	
+	idea {
+		module.downloadJavadoc = true
+		module.downloadSources = true
+	}
+	
+	sourceSets {
+		test.compileClasspath += configurations.compileOnly
+		test.runtimeClasspath += configurations.compileOnly
+	}
+	
+	
+	test {
+		useJUnit()
+		useJUnitPlatform()
+	}
+	
+	
+	repositories {
+		mavenLocal()
+		mavenCentral()
+		
+		maven {
+			url = "https://papermc.io/repo/repository/maven-public/"
+		}
+	}
+	
+	
+	dependencies {
+		// main
+		compileOnly "com.destroystokyo.paper:paper-api:1.15.2-R0.1-SNAPSHOT"
+		
+		// test
+		testCompile "org.junit.jupiter:junit-jupiter-engine:5.4.2"
+		testRuntime "org.junit.jupiter:junit-jupiter-engine:5.4.2"
+	}
+	
+}
+
+subprojects {
+	dependencies {
+		compileOnly rootProject
+	}
+}

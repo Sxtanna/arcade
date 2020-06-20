@@ -1,0 +1,10 @@
+name: ArcadeOneInTheQuiver
+main: com.sxtanna.mc.arcade.oitq.ArcadeGamePluginOITQ
+
+depend: [Arcade]
+
+version: '1.0'
+website: 'https://gh.sxtanna.com'
+
+author: 'Sxtanna'
+api-version: '1.14'

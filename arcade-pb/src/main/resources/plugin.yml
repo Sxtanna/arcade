@@ -1,0 +1,14 @@
+name: ArcadePaintball
+main: com.sxtanna.mc.arcade.pb.ArcadeGamePluginPB
+
+depend: [Arcade]
+
+version: '1.0'
+website: 'https://gh.sxtanna.com'
+
+author: 'Sxtanna'
+api-version: '1.14'
+
+commands:
+  pb:
+    usage: '/pb'
